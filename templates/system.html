@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello</title>
+    <!-- JQueryの読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <!-- SocketIOの読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"
+        integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ=="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--<form>
+        <button type="button" onclick="startRecognition()">Start</button><br><br>
+        <button type="button" onclick="endRecognition()">Stop</button>
+        <input type="text" name="topic" id="topic" placeholder="topic">
+        <input type="text" name="interviewer" id="interviewer" placeholder="interviewer">
+        <input type="submit" value="Submit">
+    </form>-->
+    <form id="emit" method="POST" action='#'>
+        <input type="text" name="emit_data" id="emit_data" placeholder="Message"><br>
+        <input type="submit" value="Echo"><br><br>
+        <button type="button" onclick="startRecognition()">Start</button><br><br>
+        <button type="button" onclick="endRecognition()">Stop</button><br><br>
+    </form>
+    <div id="setting" action="javascript:void(0)"></div>
+    <div id="interview" action="javascript:void(0)"></div>
+    <div id="content" action="javascript:void(0)"></div>
+
+    <script type="text/javascript" charset="utf-8">
+        // 音声認識
+        var recognition = new webkitSpeechRecognition();
+        recognition.lang = 'ja-JP';
+        recognition.interimResults = false;
+
+        // socket io用
+        var socket = io();
+
+        function startRecognition() {
+            // 音声認識をスタート
+            recognition.start();
+            // content.innerHTML += '<div>' + '音声認識開始' + '</div>';
+        };
+
+        function endRecognition() {
+            // 音声認識を停止
+            recognition.stop();
+
+            // 接続停止
+            content.innerHTML += '<div>音声認識停止</div>';
+            console.log('音声認識停止');
+        };
+
+        //音声認識開始タイミングの取得
+        recognition.onspeechstart = function () {
+            // content.innerHTML += '<div>' + '音声開始' + '</div>';
+            console.log('音声開始');
+        }
+        //音声自動文字起こし機能
+        recognition.onresult = function (e) {
+            var autotext = e.results[0][0].transcript;
+            console.log(e);
+            content.innerHTML += '<div>' + 'You : ' + autotext + '</div>';
+            // 音声認識結果送信用
+            socket.emit('get_audio', { data: autotext });
+
+        }
+
+        socket.on('get_gpt', function (msg) {
+            $('#content').append($('<div/>').text('baby : ' + msg.data).html());
+            $('#content').append($('<div/>').text('    context : ' + msg.context).html());
+            // 音声合成
+            const uttr = new SpeechSynthesisUtterance(msg.data)
+            uttr.rate = 0.9
+            // 発言を再生 (発言キューに発言を追加)
+            speechSynthesis.speak(uttr)
+            uttr.addEventListener('end', (event) => {
+                // 音声認識をスタート
+                recognition.start();
+            });
+        });
+
+        socket.on('robot_setting', function (msg) {
+            $('#setting').append($('<div/>').text('setting : ' + msg.data).html());
+            socket.emit('get_robot_setting', { data: msg.data});
+        })
+
+        socket.on('interview_info' , function(msg) {
+            $('#interview').append($('<div/>').text('contents : ' + msg.contents).html());
+            socket.emit('get_information', { data: "OK" , topic: msg.topic});
+        });
+        $('form#emit').submit(function (event) {
+            // 'my_event' という名前のデータをサーバーに送信
+            // 'my_event' は，id が 'emit_data' のhtml要素の値をdata属性に持つjsonペイロードを含むメッセージ
+            socket.emit('my_event', { data: $('#emit_data').val() });
+            return false;
+        });
+
+    </script>
+</body>
+
+</html>
