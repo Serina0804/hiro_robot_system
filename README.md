@@ -23,6 +23,21 @@
 
 ## プロジェクトについて
 
+大規模言語モデルを使用して、実際の乳幼児と話しているような実感を得ることにできる赤ちゃんロボット</p>
+Semantic babblingという手法を考案。</p>
+Semantic babbling:人の発話に対する赤ちゃんの心の声を生成し、生成した心の声を喃語として出力</p>
+Stability of Semantic babbling、Interpretability of Semantic babblingの2つの機能で構成</p>
+
+### 概要
+
+### Stability of Semantic babbling
+
+入力した人の発話に対して自然言語で表される赤ちゃんロボットの心の声を出力する。
+
+### Interpretability of Semantic babbling
+
+Stability of Semantic babblingで出力した自然言語から喃語に変換し、出力する。
+
 
 ## セットアップ
 以下のPythonライブラリが必須．必要なPythonバージョンなどは調べること
