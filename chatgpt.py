@@ -9,31 +9,6 @@ default_messages = [{"role": "system",
 
 next_messages = default_messages
 
-# def make_babbling(input_text):
-#     if input_text == "さようなら":
-#         sys.exit()
-#     client = openai.ChatCompletion.create(
-#     model="gpt-4",
-#     messages=[
-#     {
-#         "role": "system",
-#         "content": "あなたは赤ちゃんです．\nUserに対する返答を「バ」と「ブ」のみを使用した赤ちゃん言葉で答えてください．ただし，「〜」は使用しないでください．また，（）の中に内容を答えてください．\n\n\n"
-#     },
-#     {
-#         "role": "user",
-#         "content": input_text
-#     }
-#     ],
-#     temperature=0,
-#     max_tokens=256,
-#     top_p=1,
-#     frequency_penalty=0,
-#     presence_penalty=0
-#     )
-#     # 生成されたテキストを取得
-#     generated_text = client['choices'][0]['message']['content']
-#     return generated_text
-
 def make_babbling(input_text , setting):
     if input_text == "さようなら":
         sys.exit()
