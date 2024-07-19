@@ -31,45 +31,42 @@
 
 
 大規模言語モデルを使用して、実際の乳幼児と話しているような実感を得ることにできる赤ちゃんロボット</p>
-Semantic babblingという手法を考案。</p>
-Semantic babbling:人の発話に対する赤ちゃんの心の声を生成し、生成した心の声を喃語として出力</p>
-Stability of Semantic babbling、Interpretability of Semantic babblingの2つの機能で構成</p>
+**Semantic babbling**という手法を考案。</p>
+Semantic babbling : 人の発話に対する赤ちゃんの心の声を生成し、生成した心の声を喃語として出力</p>
+**Response Generation Module**、**Babbling Selection Module**の2つの機能で構成</p>
 
 ### 概要
 #### システム図
 [hiro_system](https://github.com/user-attachments/assets/21a5973c-50ab-4474-882d-3f66d56c6460)
 
-#### Stability of Semantic babbling
+#### Response Generation Module
 
 入力した人の発話に対して自然言語で表される赤ちゃんロボットの心の声を出力する。
 
-#### Interpretability of Semantic babbling
+#### Babbling Selection Module
 
-Stability of Semantic babblingで出力した自然言語から喃語に変換し、出力する。
+Response Generation Moduleで出力した自然言語から自然な喃語の音声を選択し、出力する。
 
 
 ## セットアップ
 以下のPythonライブラリが必須．必要なPythonバージョンなどは調べること
 
+```sh
 openai
 flask
 flask_socketio
-
+```
 
 ## 環境
-
-<!-- 言語、フレームワーク、ミドルウェア、インフラの一覧とバージョンを記載 -->
 
 Python、Flask、chatGPT
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
 
-
-
 ## 使い方
 1.system_1.pyを実行</p>
-2.http://127.0.0.1:5000/にアクセス</p>
+2.http://127.0.0.1:5000/ にアクセス</p>
 3.ページ上の「設定」に赤ちゃんロボットの設定（例：赤ちゃん、機嫌の良い赤ちゃん）を記入して、「反映」をクリック。</p>
 4.音声認識開始時に「Start」ボタンをクリック。</p>
 5.音声認識が終了するとChatGPTに認識結果を入力し，システム側が喃語の返答を返す</p>
