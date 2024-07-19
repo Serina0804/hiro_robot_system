@@ -67,6 +67,11 @@ Python、Flask、chatGPT
 6.システム側の喃語の返答、自然言語の意味がページ上に追加され，喃語返答が合成音声で読み上げられる</p>
 7.合成音声の再生が終了すると，音声認識が再開され5.に戻る</p>
 
+## システム図
+[hiro_system](https://github.com/user-attachments/assets/21a5973c-50ab-4474-882d-3f66d56c6460)
+
+## 動作の様子
+[!['赤ちゃんロボットの動作の様子']('https://github.com/user-attachments/assets/41c62dfb-4b4b-4cfe-9ede-706920c21917')]('https://youtu.be/H5pE8PvC24w')
 
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
