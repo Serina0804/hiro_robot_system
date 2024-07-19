@@ -71,7 +71,7 @@ Python、Flask、chatGPT
 [hiro_system](https://github.com/user-attachments/assets/21a5973c-50ab-4474-882d-3f66d56c6460)
 
 ## 動作の様子
-[!['赤ちゃんロボットの動作の様子']('https://youtu.be/H5pE8PvC24w')]('https://youtu.be/H5pE8PvC24w')
+[!['赤ちゃんロボットの動作の様子']('https://youtu.be/H5pE8PvC24w')]('https://youtu.be/H5pE8PvC24w?si=2WAQUFyCwNSE6_MC')
 
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
