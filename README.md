@@ -24,10 +24,10 @@
 ## プロジェクトについて
 
 ### 動作の様子
+
+下の画像をクリックしてください。</br>
 [![Watch the video](https://github.com/user-attachments/assets/41c62dfb-4b4b-4cfe-9ede-706920c21917)](https://youtu.be/H5pE8PvC24w?si=2WAQUFyCwNSE6_MC)
 
-<!-- [Watch the video on YouTube](https://youtu.be/H5pE8PvC24w?si=2WAQUFyCwNSE6_MC) -->
-<!-- [!['赤ちゃんロボットの動作の様子']('https://youtu.be/H5pE8PvC24w')]('https://youtu.be/H5pE8PvC24w?si=2WAQUFyCwNSE6_MC') -->
 
 
 大規模言語モデルを使用して、実際の乳幼児と話しているような実感を得ることにできる赤ちゃんロボット</p>
