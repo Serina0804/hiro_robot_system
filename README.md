@@ -23,18 +23,27 @@
 
 ## プロジェクトについて
 
+### 動作の様子
+[![Watch the video](https://github.com/user-attachments/assets/41c62dfb-4b4b-4cfe-9ede-706920c21917)](https://youtu.be/H5pE8PvC24w?si=2WAQUFyCwNSE6_MC)
+
+<!-- [Watch the video on YouTube](https://youtu.be/H5pE8PvC24w?si=2WAQUFyCwNSE6_MC) -->
+<!-- [!['赤ちゃんロボットの動作の様子']('https://youtu.be/H5pE8PvC24w')]('https://youtu.be/H5pE8PvC24w?si=2WAQUFyCwNSE6_MC') -->
+
+
 大規模言語モデルを使用して、実際の乳幼児と話しているような実感を得ることにできる赤ちゃんロボット</p>
 Semantic babblingという手法を考案。</p>
 Semantic babbling:人の発話に対する赤ちゃんの心の声を生成し、生成した心の声を喃語として出力</p>
 Stability of Semantic babbling、Interpretability of Semantic babblingの2つの機能で構成</p>
 
 ### 概要
+#### システム図
+[hiro_system](https://github.com/user-attachments/assets/21a5973c-50ab-4474-882d-3f66d56c6460)
 
-### Stability of Semantic babbling
+#### Stability of Semantic babbling
 
 入力した人の発話に対して自然言語で表される赤ちゃんロボットの心の声を出力する。
 
-### Interpretability of Semantic babbling
+#### Interpretability of Semantic babbling
 
 Stability of Semantic babblingで出力した自然言語から喃語に変換し、出力する。
 
@@ -66,13 +75,6 @@ Python、Flask、chatGPT
 5.音声認識が終了するとChatGPTに認識結果を入力し，システム側が喃語の返答を返す</p>
 6.システム側の喃語の返答、自然言語の意味がページ上に追加され，喃語返答が合成音声で読み上げられる</p>
 7.合成音声の再生が終了すると，音声認識が再開され5.に戻る</p>
-
-## システム図
-[hiro_system](https://github.com/user-attachments/assets/21a5973c-50ab-4474-882d-3f66d56c6460)
-
-## 動作の様子
-[Watch the video on YouTube](https://youtu.be/H5pE8PvC24w?si=2WAQUFyCwNSE6_MC)
-<!-- [!['赤ちゃんロボットの動作の様子']('https://youtu.be/H5pE8PvC24w')]('https://youtu.be/H5pE8PvC24w?si=2WAQUFyCwNSE6_MC') -->
 
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
